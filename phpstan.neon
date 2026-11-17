@@ -19,7 +19,6 @@ parameters:
         - '#Strict comparison using === between non-empty-string and null#'
         - '#Property.*never read#'
         - '#Strict comparison using !== between array#'
-        - '#Class.*constructor invoked with.*parameters.*required#'
     treatPhpDocTypesAsCertain: false
     checkMissingIterableValueType: true
     checkGenericClassInNonGenericObjectType: true
