@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * FlintPHP Project Console Launcher.
+ */
+
+if (!file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    fwrite(STDERR, "FlintPHP console requires a Composer autoload file.\n");
+    fwrite(STDERR, "Run `composer install` in your project first.\n");
+    exit(1);
+}
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\AppFactory;
+use FlintPHP\Framework\Console\ConsoleOutput;
+use FlintPHP\Framework\Console\ParsedInput;
+
+$app = require_once __DIR__.'/../bootstrap/app.php';
+$app->boot();
+
+$console = AppFactory::console($app);
+
+exit($console->run(
+    new ParsedInput($argv),
+    new ConsoleOutput()
+));

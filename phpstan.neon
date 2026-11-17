@@ -1,0 +1,25 @@
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - src
+    excludePaths:
+        - src/Console/Command/DbSeedCommand.php
+        - src/Console/Command/KeyGenerateCommand.php
+    ignoreErrors:
+        - '#Access to an undefined property App\\Domain\\Model\\.*\$#'
+        - '#no value type specified in iterable type#'
+        - '#Property.*has no type specified#'
+        - '#Strict comparison using === between non-empty-array.*and array#'
+        - '#Static method App\\Support\\BcMath::check\(\) is unused#'
+        - '#Property App\\Api\\Transformer\\CategoryTransformer::\$dp is never read#'
+        - '#Binary operation.*between string and string#'
+        - '#Strict comparison using === between non-empty-string and null#'
+        - '#Property.*never read#'
+        - '#Strict comparison using !== between array#'
+        - '#Class.*constructor invoked with.*parameters.*required#'
+    treatPhpDocTypesAsCertain: false
+    checkMissingIterableValueType: true
+    checkGenericClassInNonGenericObjectType: true
